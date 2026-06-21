@@ -1,128 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Operational Leader | Practical Leadership for Frontline Managers</title>
-  <meta name="description" content="Practical leadership and operational insights for frontline managers, supervisors, and blue-collar professionals." />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#top">
-      <img src="assets/logo.png" alt="The Operational Leader logo" />
-      <span>The Operational Leader</span>
-    </a>
-    <nav>
-      <a href="#podcast">Podcast</a>
-      <a href="#articles">Articles</a>
-      <a href="#resources">Resources</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
+:root {
+  --bg: #0e0f11;
+  --panel: #17191d;
+  --text: #f5f2ea;
+  --muted: #c8c1b4;
+  --gold: #d4a72c;
+  --gold-dark: #a87c14;
+  --line: rgba(255,255,255,0.12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+.site-header { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 14px 5vw; background: rgba(14,15,17,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.brand { display: flex; gap: 12px; align-items: center; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+.brand img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+nav { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
+nav a:hover { color: var(--gold); }
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 42px; align-items: center; padding: 80px 5vw 60px; min-height: 78vh; background: radial-gradient(circle at top left, rgba(212,167,44,.16), transparent 38%); }
+.eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .18em; font-size: 13px; font-weight: 800; margin: 0 0 14px; }
+h1 { font-size: clamp(42px, 6vw, 76px); line-height: .95; margin: 0 0 24px; letter-spacing: -.04em; }
+h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.05; margin: 0 0 18px; letter-spacing: -.03em; }
+h3 { font-size: 22px; line-height: 1.2; margin: 0 0 10px; }
+p { color: var(--muted); }
+.hero-copy { max-width: 650px; font-size: 20px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 13px 18px; border-radius: 999px; font-weight: 800; transition: transform .15s ease, background .15s ease; }
+.button:hover { transform: translateY(-2px); }
+.primary { background: var(--gold); color: #111; }
+.secondary { border: 1px solid var(--line); color: var(--text); }
+.hero-card, .rounded-image { border-radius: 26px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.hero-card img, .rounded-image { width: 100%; display: block; }
+.three-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 0 5vw 70px; }
+.three-pillars div, .cards article, .quote-box { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 28px; }
+.three-pillars h2 { font-size: 26px; color: var(--gold); }
+.split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; padding: 80px 5vw; border-top: 1px solid var(--line); }
+.check-list { padding-left: 18px; color: var(--muted); margin-bottom: 28px; }
+.check-list li { margin-bottom: 8px; }
+.content-section { padding: 80px 5vw; border-top: 1px solid var(--line); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+.dark-panel { background: linear-gradient(135deg, #17191d, #0e0f11); }
+.resource-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+.resource-grid span { border: 1px solid var(--line); border-radius: 18px; padding: 18px; color: var(--text); background: rgba(255,255,255,.04); }
+.about-section { background: #111317; }
+.quote-box { min-height: 260px; display: flex; align-items: center; }
+.quote-box p { font-size: 34px; line-height: 1.15; color: var(--text); font-weight: 800; }
+.cta { text-align: center; padding: 90px 5vw; background: radial-gradient(circle at center, rgba(212,167,44,.2), transparent 45%); }
+.cta p { max-width: 620px; margin: 0 auto 28px; }
+footer { border-top: 1px solid var(--line); padding: 28px 5vw; text-align: center; color: var(--muted); }
+@media (max-width: 860px) {
+  .site-header { align-items: flex-start; gap: 12px; flex-direction: column; }
+  nav { flex-wrap: wrap; gap: 14px; }
+  .hero, .split-section, .three-pillars, .cards, .resource-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 52px; }
+}
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Lead. Operate. Inspire.</p>
-        <h1>Practical leadership lessons from the real world of operations.</h1>
-        <p class="hero-copy">The Operational Leader helps frontline managers, supervisors, and blue-collar professionals lead with clarity, accountability, and consistency.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#podcast">Listen to the Podcast</a>
-          <a class="button secondary" href="#resources">Get Leadership Tools</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <img src="assets/hero-banner.png" alt="Industrial leadership banner" />
-      </div>
-    </section>
+.podcast-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
 
-    <section class="three-pillars">
-      <div>
-        <h2>Leadership</h2>
-        <p>Build trust, communicate clearly, and lead people through pressure.</p>
-      </div>
-      <div>
-        <h2>Operations</h2>
-        <p>Turn priorities, standards, and daily execution into consistent results.</p>
-      </div>
-      <div>
-        <h2>Accountability</h2>
-        <p>Protect the culture by holding standards with both clarity and respect.</p>
-      </div>
-    </section>
+.button.platform {
+  min-width: 145px;
+  justify-content: center;
+  text-align: center;
+}
 
-    <section id="podcast" class="split-section">
-      <div>
-        <p class="eyebrow">Podcast</p>
-        <h2>Short leadership lessons for your commute.</h2>
-        <p>The Operational Leader Podcast delivers bite-sized episodes built for busy managers who want practical lessons they can use the same day.</p>
-        <ul class="check-list">
-          <li>No corporate fluff</li>
-          <li>No hour-long interviews</li>
-          <li>Real-world leadership, accountability, and operations</li>
-        </ul>
-        <div class="podcast-buttons" aria-label="Podcast platform links">
-          <a class="button platform spotify" href="https://open.spotify.com/show/033mqkaleFYkYhuf1FfthQ" target="_blank" rel="noopener noreferrer">Spotify</a>
-          <a class="button platform apple" href="https://podcasts.apple.com/us/podcast/the-operational-leader/id1896925714" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
-          <a class="button platform amazon disabled" href="#" aria-disabled="true" title="Amazon Music link coming soon">Amazon Music<br><small>Coming soon</small></a>
-          <a class="button platform iheart" href="https://www.iheart.com/podcast/337215386/" target="_blank" rel="noopener noreferrer">iHeartRadio</a>
-        </div>
-      </div>
-      <img class="rounded-image" src="assets/podcast-promo.png" alt="Podcast promotion graphic" />
-    </section>
+.button.platform small {
+  display: block;
+  font-size: 0.68rem;
+  line-height: 1.1;
+  opacity: 0.85;
+  margin-top: 0.15rem;
+}
 
-    <section id="articles" class="content-section">
-      <p class="eyebrow">Articles</p>
-      <h2>Latest Leadership Topics</h2>
-      <div class="cards">
-        <article>
-          <h3>The Standard You Tolerate Becomes the Culture You Create</h3>
-          <p>Culture is built by what leaders consistently allow, correct, reward, and protect.</p>
-        </article>
-        <article>
-          <h3>The Leadership Shift</h3>
-          <p>Being good at the job does not automatically prepare someone to lead people.</p>
-        </article>
-        <article>
-          <h3>Why Accountability Feels Uncomfortable</h3>
-          <p>Accountability is not punishment. It is clarity, respect, and leadership responsibility.</p>
-        </article>
-      </div>
-    </section>
+.button.platform.spotify {
+  background: #1db954;
+  color: #061107;
+}
 
-    <section id="resources" class="content-section dark-panel">
-      <p class="eyebrow">Resources</p>
-      <h2>Operational Leadership Tools</h2>
-      <p>Coming soon: downloadable checklists, templates, and practical tools for frontline leaders.</p>
-      <div class="resource-grid">
-        <span>Daily Leadership Checklist</span>
-        <span>Accountability Conversation Guide</span>
-        <span>Team Meeting Agenda</span>
-        <span>New Manager Field Guide</span>
-      </div>
-    </section>
+.button.platform.apple {
+  background: #8f5cff;
+  color: #ffffff;
+}
 
-    <section id="about" class="split-section about-section">
-      <div>
-        <p class="eyebrow">About</p>
-        <h2>Built for leaders who carry real responsibility.</h2>
-        <p>The Operational Leader exists for managers who lead people, solve problems, handle pressure, and keep the work moving. This brand focuses on practical leadership, operational excellence, and developing people through consistency, accountability, and clear communication.</p>
-      </div>
-      <div class="quote-box">
-        <p>“The standard you tolerate eventually becomes the culture you create.”</p>
-      </div>
-    </section>
+.button.platform.amazon {
+  background: #232f3e;
+  color: #ffffff;
+}
 
-    <section class="cta">
-      <h2>Start leading with more clarity and consistency.</h2>
-      <p>Follow The Operational Leader for practical leadership lessons from the front lines.</p>
-      <a class="button primary" href="mailto:contact@theoperationalleader.com">Contact</a>
-    </section>
-  </main>
+.button.platform.iheart {
+  background: #c6002b;
+  color: #ffffff;
+}
 
-  <footer>
-    <p>© 2026 The Operational Leader. Lead. Operate. Inspire.</p>
-  </footer>
-</body>
-</html>
+.button.platform.disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+@media (max-width: 560px) {
+  .podcast-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .button.platform {
+    width: 100%;
+  }
+}
